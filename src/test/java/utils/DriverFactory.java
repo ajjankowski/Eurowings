@@ -23,8 +23,8 @@ public class DriverFactory {
             case "chrome" -> {
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions chromeOptions = new ChromeOptions();
-//                chromeOptions.addArguments("--headless=new");
-//                chromeOptions.addArguments("--remote-allow-origins=*");
+                chromeOptions.addArguments("--headless=new");
+                chromeOptions.addArguments("--remote-allow-origins=*");
                 driver = new ChromeDriver(chromeOptions);
                 driver.manage().window().setSize(new Dimension(1920, 1080));
             }
@@ -46,7 +46,7 @@ public class DriverFactory {
             default -> log.error("Wrong driver type: use Chrome, Firefox or Edge");
         }
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
     public static void teardown() {
