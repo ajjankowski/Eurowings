@@ -52,19 +52,23 @@ public class EurowingsPageStepDefinition {
         eurowingsPage.pickDestinationAirport(destinationAirport);
     }
 
-    @And("I pick %date% as departure date")
-    public void iPickDepartureDate() {
+    @And("I pick {string} as departure date")
+    public void iPickDepartureDate(String departureDate) {
         log.info("Starting step: I pick %date% as departure date");
+        eurowingsPage.pickDepartureDate(departureDate);
     }
 
     @And("I confirm to show flight status")
     public void iConfirmToShowFlightStatus() {
         log.info("Starting step: I confirm to show flight status");
+        eurowingsPage.showFlightStatus();
     }
 
-    @Then("I see status for searched flight")
-    public void iSeeStatusForSearchedFlight() {
+    @Then("I see list of my searched flight")
+    public void iSeeListOfMySearchedFlight() {
         log.info("Starting step: I see status for searched flight");
+        assertEquals(eurowingsPage.checkPickedDate(), eurowingsPage.checkSearchedDate());
+        log.info("You have " + eurowingsPage.checkNumberOfFlightOptions() + " possible flight options.");
     }
 
     @When("I click on Flight number radio button")
@@ -77,15 +81,19 @@ public class EurowingsPageStepDefinition {
     @Then("I see correct Flight number inputs")
     public void iSeeCorrectFlightNumberInputs() {
         log.info("Starting step: I see correct Flight number inputs");
+        assertTrue(eurowingsPage.getFlightNumberInput().isDisplayed());
+        assertTrue(eurowingsPage.getDepartureDateInput().isDisplayed());
     }
 
-    @When("I input XXX flight number")
-    public void iInputXXXFlightNumber() {
+    @When("I input {string} flight number")
+    public void iInputFlightNumber(String flightNumber) {
         log.info("Starting step: I input XXX flight number");
+        eurowingsPage.enterFlightNumber(flightNumber);
     }
 
     @Then("I see no flights")
     public void iSeeNoFlights() {
         log.info("Starting step: I see no flights");
+        assertEquals("Unfortunately, we could not find any results for your search.", eurowingsPage.getNoResultsInfo().getText());
     }
 }
