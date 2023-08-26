@@ -32,6 +32,7 @@ Project is an example of Behavior-Driven Development, with Cucumber/Java setup f
 ### Test execution
 
 * Mark "src/test/java" as "Test Sources Root" if needed
+* To execute in UI mode comment out "headless" option in the DriverFactory file
 * To execute run "TestRunner", Scenario from "src/test/resources" or run Jenkins
 * For browser report go to "target/cucumber-report/cucumber.html"
 * For Jenkins report configure plugin "Cucumber reports" and run via "Pipeline script from SCM"
