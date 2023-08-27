@@ -16,7 +16,7 @@ public class EurowingsPageStepDefinition {
 
     @Given("I am on Eurowings page")
     public void iAmOnEurowingsPage() {
-        log.info("Starting step: I am on Eurowings page");
+        log.info("Given I am on Eurowings page");
         String eurowingsUrl = "https://www.eurowings.com/en/information/at-the-airport/flight-status.html";
         driver.get(eurowingsUrl);
         assertEquals(eurowingsUrl, driver.getCurrentUrl());
@@ -27,73 +27,73 @@ public class EurowingsPageStepDefinition {
 
     @When("I click on Flight route radio button")
     public void iClickOnFlightRouteRadioButton() {
-        log.info("Starting step: I click on Flight route radio button");
+        log.info("When I click on Flight route radio button");
         eurowingsPage.pickFlightRouteRadioButton();
         assertTrue(eurowingsPage.getFlightRouteRadioButton().isSelected());
     }
 
     @Then("I see correct Flight route inputs")
     public void iSeeCorrectFlightRouteInputs() {
-        log.info("Starting step: I see correct Flight route inputs");
+        log.info("Then I see correct Flight route inputs");
         assertEquals("Departure airport", eurowingsPage.getDepartureAirportInputText().getText());
         assertEquals("Destination airport", eurowingsPage.getDestinationAirportInputText().getText());
         assertTrue(eurowingsPage.getDepartureDateInput().isDisplayed());
     }
 
-    @When("I pick {string} as departure airport")
+    @When("I pick departure airport as {string}")
     public void iPickDepartureAirport(String departureAirport) {
-        log.info("Starting step: I pick " + departureAirport + " as departure airport");
-        eurowingsPage.pickDepartureAirport(departureAirport);
+        log.info("When I pick departure airport as " + departureAirport);
+        eurowingsPage.pickDepartureAirport(departureAirport.trim());
     }
 
-    @And("I pick {string} as destination airport")
+    @And("I pick destination airport as {string}")
     public void iPickDestinationAirport(String destinationAirport) {
-        log.info("Starting step: I pick BER as destination airport");
-        eurowingsPage.pickDestinationAirport(destinationAirport);
+        log.info("When I pick destination airport as " + destinationAirport);
+        eurowingsPage.pickDestinationAirport(destinationAirport.trim());
     }
 
-    @And("I pick {string} as departure date")
+    @And("I pick departure date as {string}")
     public void iPickDepartureDate(String departureDate) {
-        log.info("Starting step: I pick %date% as departure date");
-        eurowingsPage.pickDepartureDate(departureDate);
+        log.info("When I pick departure date as " + departureDate);
+        eurowingsPage.pickDepartureDate(departureDate.trim());
     }
 
     @And("I confirm to show flight status")
     public void iConfirmToShowFlightStatus() {
-        log.info("Starting step: I confirm to show flight status");
+        log.info("When I confirm to show flight status");
         eurowingsPage.showFlightStatus();
     }
 
     @Then("I see list of my searched flight")
     public void iSeeListOfMySearchedFlight() {
-        log.info("Starting step: I see status for searched flight");
+        log.info("Then I see list of my searched flight");
         assertEquals(eurowingsPage.checkPickedDate(), eurowingsPage.checkSearchedDate());
         log.info("You have " + eurowingsPage.checkNumberOfFlightOptions() + " possible flight options.");
     }
 
     @When("I click on Flight number radio button")
     public void iClickOnFlightNumberRadioButton() {
-        log.info("Starting step: I click on Flight number radio button");
+        log.info("When I click on Flight number radio button");
         eurowingsPage.pickFlightNumberRadioButton();
         assertTrue(eurowingsPage.getFlightNumberRadioButton().isSelected());
     }
 
     @Then("I see correct Flight number inputs")
     public void iSeeCorrectFlightNumberInputs() {
-        log.info("Starting step: I see correct Flight number inputs");
+        log.info("Then I see correct Flight number inputs");
         assertTrue(eurowingsPage.getFlightNumberInput().isDisplayed());
         assertTrue(eurowingsPage.getDepartureDateInput().isDisplayed());
     }
 
-    @When("I input {string} flight number")
+    @When("I input flight number as {string}")
     public void iInputFlightNumber(String flightNumber) {
-        log.info("Starting step: I input XXX flight number");
-        eurowingsPage.enterFlightNumber(flightNumber);
+        log.info("When I input flight number as " + flightNumber);
+        eurowingsPage.enterFlightNumber(flightNumber.trim());
     }
 
     @Then("I see no flights")
     public void iSeeNoFlights() {
-        log.info("Starting step: I see no flights");
+        log.info("Then I see no flights");
         assertEquals("Unfortunately, we could not find any results for your search.", eurowingsPage.getNoResultsInfo().getText());
     }
 }

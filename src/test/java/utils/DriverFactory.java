@@ -18,7 +18,14 @@ public class DriverFactory {
 
     public static WebDriver driver;
 
+    private DriverFactory() {
+    }
+
     public static void setDriver(String driverType) {
+        if (driver != null) {
+            log.info("Quitting existing WebDriver instance");
+            driver.quit();
+        }
         switch (driverType.toLowerCase().trim()) {
             case "chrome" -> {
                 WebDriverManager.chromedriver().setup();
@@ -26,14 +33,12 @@ public class DriverFactory {
                 chromeOptions.addArguments("--headless=new");
                 chromeOptions.addArguments("--remote-allow-origins=*");
                 driver = new ChromeDriver(chromeOptions);
-                driver.manage().window().setSize(new Dimension(1920, 1080));
             }
             case "firefox" -> {
                 WebDriverManager.firefoxdriver().setup();
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
                 firefoxOptions.addArguments("--headless");
                 driver = new FirefoxDriver(firefoxOptions);
-                driver.manage().window().setSize(new Dimension(1920, 1080));
             }
             case "edge" -> {
                 WebDriverManager.edgedriver().setup();
@@ -41,11 +46,13 @@ public class DriverFactory {
                 edgeOptions.addArguments("--headless=new");
                 edgeOptions.addArguments("--remote-allow-origins=*");
                 driver = new EdgeDriver(edgeOptions);
-                driver.manage().window().setSize(new Dimension(1920, 1080));
             }
-            default -> log.error("Wrong driver type: use Chrome, Firefox or Edge");
+            default -> {
+                log.error("Wrong driver type: use Chrome, Firefox, or Edge");
+                throw new IllegalArgumentException("Invalid driver type specified.");
+            }
         }
-        driver.manage().window().maximize();
+        driver.manage().window().setSize(new Dimension(1920, 1080));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
@@ -53,5 +60,6 @@ public class DriverFactory {
         if (driver != null) {
             driver.quit();
         }
+        driver = null;
     }
 }

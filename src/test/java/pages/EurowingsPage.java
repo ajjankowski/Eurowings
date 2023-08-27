@@ -12,6 +12,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Objects;
 
+import static utils.TestLogger.log;
+
 public class EurowingsPage {
 
     private static WebDriver driver;
@@ -158,9 +160,11 @@ public class EurowingsPage {
 
         if (departureDate.toLowerCase().trim().equals("today")) {
             getDateRadioButton(date).click();
+            log.info("Today's date is: " + date);
         } else if (departureDate.toLowerCase().trim().equals("tomorrow")) {
-            String tomorrowDate = date.substring(0, date.length() - 1) + (char) (date.charAt(date.length() - 1) + 1);
+            String tomorrowDate = dateObj.plusDays(1).format(formatter);
             getDateRadioButton(tomorrowDate).click();
+            log.info("Tomorrow's date is: " + tomorrowDate);
         } else {
             throw new RuntimeException("Wrong data input -> pick \"today\" or \"tomorrow\".");
         }
