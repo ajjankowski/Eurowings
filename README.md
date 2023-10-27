@@ -1,4 +1,4 @@
-# Eurowings
+# BDD-Selenium-Cucumber
 
 Project is an example of Behavior-Driven Development, with Cucumber/Java setup for Eurowings website.
 
