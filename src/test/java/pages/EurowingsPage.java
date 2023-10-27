@@ -23,7 +23,7 @@ public class EurowingsPage {
         PageFactory.initElements(EurowingsPage.driver, this);
     }
 
-    @FindBy(xpath = "//button[@class='cookie-consent--cta-accept a-cta a-cta-prio1']")
+    @FindBy(xpath = "//button[3]")
     private WebElement cookieConfirm;
 
     @FindBy(xpath = "//div[@id='country-switch']/child::div[2]")
@@ -50,7 +50,7 @@ public class EurowingsPage {
     @FindBy(xpath = "(//button[@class='o-compact-search__cta-button-button'])[1]")
     private WebElement departureAirportInput;
 
-    @FindBy(xpath = "//input[@id='station-select-200-input']")
+    @FindBy(xpath = "//input[@placeholder='Departure airport']")
     private WebElement departureAirportListInput;
 
     @FindBy(xpath = "(//span[@class='o-compact-search__cta-button-floating-label'])[2]")
@@ -59,7 +59,7 @@ public class EurowingsPage {
     @FindBy(xpath = "(//button[@class='o-compact-search__cta-button-button'])[2]")
     private WebElement destinationAirportInput;
 
-    @FindBy(xpath = "//input[@id='station-select-201-input']")
+    @FindBy(xpath = "//input[@placeholder='Destination airport']")
     private WebElement destinationAirportListInput;
 
     @FindBy(xpath = "//input[@class='a-input-text__input a-input-text__input--deco-icon']")
