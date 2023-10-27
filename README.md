@@ -22,11 +22,11 @@ Project is an example of Behavior-Driven Development, with Cucumber/Java setup f
 
 * Git:
 
-    *     git clone https://github.com/ajjankowski/Eurowings.git
+    *     git clone https://github.com/ajjankowski/BDD-Selenium-Cucumber.git
 
 * Manually :
 
-    * Fork / Clone repository from [here](https://github.com/ajjankowski/Eurowings/archive/refs/heads/main.zip) or download zip and set
+    * Fork / Clone repository from [here](https://github.com/ajjankowski/BDD-Selenium-Cucumber/archive/refs/heads/main.zip) or download zip and set
       it up in your local workspace.
 
 ### Test execution
