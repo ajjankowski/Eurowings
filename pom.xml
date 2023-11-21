@@ -29,7 +29,7 @@
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>5.4.1</version>
+            <version>5.6.2</version>
         </dependency>
         <!-- added due to webdrivermanager vulnerability -->
         <dependency>
@@ -52,12 +52,12 @@
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
-            <version>7.13.0</version>
+            <version>7.14.0</version>
         </dependency>
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-junit</artifactId>
-            <version>7.13.0</version>
+            <version>7.14.0</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
