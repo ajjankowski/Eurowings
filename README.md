@@ -1,4 +1,4 @@
-# BDD-Selenium-Cucumber
+# Eurowings
 
 Project is an example of Behavior-Driven Development, with Cucumber/Java setup for Eurowings website.
 
@@ -22,17 +22,15 @@ Project is an example of Behavior-Driven Development, with Cucumber/Java setup f
 
 * Git:
 
-    *     git clone https://github.com/ajjankowski/BDD-Selenium-Cucumber.git
+    *     git clone https://github.com/ajjankowski/Eurowings.git
 
 * Manually :
 
-    * Fork / Clone repository from [here](https://github.com/ajjankowski/BDD-Selenium-Cucumber/archive/refs/heads/main.zip) or download zip and set
+    * Fork / Clone repository from [here](https://github.com/ajjankowski/Eurowings/archive/refs/heads/main.zip) or download zip and set
       it up in your local workspace.
 
 ### Test execution
 
 * Mark "src/test/java" as "Test Sources Root" if needed
-* To execute in headless mode, uncomment out "headless" options in the DriverFactory file
-* To execute run "TestRunner", Scenario from "src/test/resources" or run Jenkins
-* For browser report go to "target/cucumber-report/cucumber.html"
-* For Jenkins report configure plugin "Cucumber reports" and run via "Pipeline script from SCM"
+* To execute run "TestRunner" or Scenario from "src/test/resources"
+* For browser report go to "target/cucumber-report/cucumber.html" (after running by TestRunner)
